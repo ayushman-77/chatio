@@ -1,45 +1,55 @@
-# 💬 Chatio — A Simple Streamlit Chatroom App
+# 💬 Chatio - A Simple Streamlit Chatroom App
 
-Chatio is a lightweight and persistent chatroom built with Python and Streamlit, where users can register with a username and password and participate in a shared public chatroom.
-
----
-
-## 🚀 Features
-
-- ✅ User Registration & Login
-- ✅ Persistent Chat History (stored in `chat.json`)
-- ✅ Styled Chat Interface with Timestamps
-- ✅ Auto Refresh & Manual Refresh Support
-- ✅ Local JSON-based User Authentication (`users.json`)
+Chatio is a lightweight public chatroom app built with **Streamlit** that allows users to register, log in, and chat freely. Messages and user data are stored locally using JSON files, making it ideal for learning about sessions, UI state, and simple persistent storage.
 
 ---
 
-## 📦 Requirements
+## 🖼️ Interface
 
-- Python 3.7+
-- Streamlit
+Here’s what the chatroom looks like:
 
-Install dependencies:
+![Chatio Demo](screenshot.png)
+
+---
+
+## 🔧 Features
+
+- ✅ User registration and login system
+- 🗨️ Live chatroom for all users
+- 💾 Message and user data stored in JSON files (`chat.json`, `users.json`)
+- 🖤 Minimal and clean interface
+- 🔒 Secure password hashing with `bcrypt`
+- 💡 Safe handling of empty or missing user data
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-pip install streamlit
+git clone https://github.com/ayushman-77/chatio.git
+cd chatio
 ```
 
----
+### 2. Create a Virtual Environment
 
-## 📁 Project Structure
-
+```bash
+python -m venv venv
+# Activate the virtual environment:
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
 ```
-chatio/
-├── app.py           # Main Streamlit chatroom app
-├── chat_data.json   # Stores persistent chat messages
-├── users.json       # Stores hashed user credentials
-└── README.md        # Project documentation
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
 ```
 
----
-
-## ▶️ How to Run
+### 4. Run the App
 
 ```bash
 streamlit run app.py
@@ -47,15 +57,20 @@ streamlit run app.py
 
 ---
 
-## 🧪 Demo
+## 🗃️ File Structure
 
-- Register with a new username and password
-- Start chatting immediately
-- Refresh the chat manually or let it auto-refresh when you send messages
+```
+chatio/
+├── app.py               # Main Streamlit app
+├── chat_data.json       # Stores chat messages
+├── users.json           # Stores user credentials
+├── requirements.txt     # Python dependencies
+└── screenshot.png       # UI preview image
+```
 
 ---
 
-## 🔐 Note
+## 📌 Notes
 
-- This app uses simple SHA256 hashing for passwords. For real production apps, switch to more secure methods (e.g., bcrypt, OAuth).
-- This is intended for **local/demo usage**. Do not expose it directly to the internet without adding proper security.
+- `users.json` and `chat.json` are automatically created if they do not exist.
+- If `users.json` is empty or malformed, the app still handles user registration smoothly.
